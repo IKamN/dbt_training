@@ -2,3 +2,12 @@ version: 2
 
 models:
   - name: stg_customers
+    description: Foreign key to stg_customers.customer_id.
+    columns: 
+          - name: customer_id
+            tests:
+              - unique
+              - not_null
+              - relationships:
+                  to: ref('stg_customers')
+                  field: customer_id

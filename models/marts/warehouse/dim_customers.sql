@@ -21,7 +21,7 @@ with customers as (
         {{ concat_name(first_name, last_name) }} as name,   
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
-        coalesce(customer_orders.number_of_orders, 0) as number_of_orders,
+        coalesce(customer_orders.number_of_orders, '{{ var("default_number") }}') as number_of_orders,
         customer_orders.lifetime_value
     from customers
     left join customer_orders using (customer_id)

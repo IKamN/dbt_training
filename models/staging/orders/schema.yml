@@ -2,3 +2,15 @@ version: 2
 
 models:
   - name: stg_orders
+    description: Staged customer data from our source.
+    columns:
+      - name: order_id
+        description: This is order_id column information
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: "{{ doc('order_status') }}"
+        tests:
+          - accepted_values:
+              values: ['completed', 'shipped', 'returned', 'placed', 'return_pending']

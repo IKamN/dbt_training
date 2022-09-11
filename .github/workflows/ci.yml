@@ -1,0 +1,25 @@
+name: CI
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      
+      - name: Install dbt
+        run: pip install dbt-postgres
+        
+      - name: Run dbt deps
+        run: dbt deps --profiles-dir .
+        
+      - name: Run dbt build
+        run: dbt build --profiles-dir .
+          

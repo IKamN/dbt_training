@@ -36,3 +36,9 @@ models:
     staging:
       +materialized: view
       +schema: stg
+    marts:
+      +materialized: table
+      warehouse:
+        +schema: dwh
+      reporting:
+        +schema: rpt

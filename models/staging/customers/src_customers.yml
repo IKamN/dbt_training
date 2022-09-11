@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_customers
+    database: dbt_test
+    schema: src
+    tables:
+      - name: customers

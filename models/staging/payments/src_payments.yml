@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_payments
+    database: dbt_test
+    schema: src
+    tables:
+      - name: payments

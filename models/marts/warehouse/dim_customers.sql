@@ -18,7 +18,7 @@ with customers as (
 , final as (
     select
         customers.customer_id,
-        concat(customers.last_name, ' ', customers.first_name) as name,   
+        {{ concat_name(first_name, last_name) }} as name,   
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
         coalesce(customer_orders.number_of_orders, 0) as number_of_orders,

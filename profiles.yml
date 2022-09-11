@@ -1,0 +1,23 @@
+dbt_train:
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: localhost
+      port: 5432
+      user: "{{ env_var('DBT_USER') }}"
+      pass: "{{ env_var('DBT_PASS') }}"
+      dbname: dbt_test
+      schema: src
+
+    prod:
+      type: postgres
+      threads: 1
+      host: localhost
+      port: 5432
+      user: "{{ env_var('DBT_USER') }}"
+      pass: "{{ env_var('DBT_PASS') }}"
+      dbname: dbt_test
+      schema: src
+
+  target: dev

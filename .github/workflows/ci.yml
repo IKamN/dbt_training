@@ -6,6 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DBT_USER: ${{ secrets.DBT_USER }}
+      DBT_PASS: ${{ secrets.DBT_PASS }} 
     steps:
       - uses: actions/checkout@v3
 

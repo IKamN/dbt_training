@@ -5,8 +5,8 @@ dbt_train:
       threads: 1
       host: localhost
       port: 5432
-      user: "{{ env('DBT_USER') }}"
-      pass: "{{ env('DBT_PASS') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      pass: "{{ env_var('DBT_PASS') }}"
       dbname: dbt_test
       schema: src
 

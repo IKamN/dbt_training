@@ -4,7 +4,7 @@ dbt_train:
       type: postgres
       threads: 1
       host: localhost
-      port: 5433
+      port: 5432
       user: "{{ env_var('DBT_USER') }}"
       pass: "{{ env_var('DBT_PASS') }}"
       dbname: dbt_test
